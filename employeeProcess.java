@@ -2,8 +2,10 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.Comparator;
 import java.io.BufferedReader;
+
 public class employeeProcess {
 
 
@@ -85,6 +87,22 @@ public class employeeProcess {
                     e.printStackTrace(); 
                 }
 
+//
+
+
+
+
+
+
+
+//sort age list and performance list from least to greateset int new varaiubles
+
+//use multithreading to write to multiples files at the same time 
+
+// files should each contain top performers , 
+//percetaage  of emplyees in each deparment
+//and that specefic emplyees infrmaiton along with their rank 
+//sync emplyee count
 
 
             System.out.println("hi");
