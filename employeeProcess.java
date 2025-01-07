@@ -69,10 +69,11 @@ public class employeeProcess {
                     String [] userList = list.split(",");
 
                     ArrayList<String> NameList = new ArrayList<>();
-                    ArrayList<Integer > AgeList = new ArrayList<>();  
+                    ArrayList<Integer> AgeList = new ArrayList<>();  
                     ArrayList<Double> performanceList = new ArrayList<>();     
-                    ArrayList<String> depoartmentList = new ArrayList<>();  
+                    ArrayList<String> depoartmentList = new ArrayList<>(); 
 
+                   
 
                     for(int i = 0; i < userList.length; i++){
                         NameList.add(userList[i]);
@@ -82,7 +83,12 @@ public class employeeProcess {
                         performanceList.add(Double.parseDouble(userList[i]));
                         ++i;
                         depoartmentList.add(userList[i]);
-                    }
+                    } 
+                    ArrayList<Integer> HighestAge=new ArrayList<>(AgeList);
+                    Collections.sort(HighestAge);
+                    ArrayList<Double> HighestPerformance= new ArrayList<>(performanceList);
+                    Collections.sort(HighestPerformance);
+
                 }catch(IOException e){
                     e.printStackTrace(); 
                 }
@@ -95,13 +101,15 @@ public class employeeProcess {
 
 
 
-//sort age list and performance list from least to greateset int new varaiubles
 
+
+
+//findout each deparment make list for each one with statictics 
 //use multithreading to write to multiples files at the same time 
 
 // files should each contain top performers , 
 //percetaage  of emplyees in each deparment
-//and that specefic emplyees infrmaiton along with their rank 
+//and that deparmetns  infrmaiton along with their amount of emplyees 
 //sync emplyee count
 
 
