@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.HashMap;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class employeeProcess {
@@ -17,28 +18,7 @@ public class employeeProcess {
 
 
 
-// public static String[] processDataxlxs(String line){
 
-    
-//     //process name into index 1
-
-
-//     //precess age into index 2
-
-
-//     //years with comapny into index 3
-
-
-//     //deparment into index 4
-
-
-//     //rating into index 5
-
-
-    
-//     //return array, each index is each value of a person
-//         return;
-//     }
 
 
 
@@ -67,18 +47,20 @@ public class employeeProcess {
             String fileName = "data.csv";
 
 
- ArrayList<String> NameList;
-ArrayList<Integer> AgeList;
- ArrayList<Double> performanceList;
- ArrayList<String> depoartmentList;
+ ArrayList<String> NameList = new ArrayList<>();
+ArrayList<Integer> AgeList = new ArrayList<>(); 
+ ArrayList<Double> performanceList = new ArrayList<>(); 
+ ArrayList<String> depoartmentList = new ArrayList<>();
 
- NameList = new ArrayList<>();
- AgeList = new ArrayList<>();  
-performanceList = new ArrayList<>();     
+ 
+ 
+   
 depoartmentList = new ArrayList<>(); 
-
-ArrayList<Integer> HighestAge;
- ArrayList<Double> HighestPerformance;
+String [] userList;
+ArrayList<Integer> HighestAge= new ArrayList<>();
+;
+ ArrayList<Double> HighestPerformance= new ArrayList<>();
+ ;
 
                 try(BufferedReader  reader = new BufferedReader (new FileReader(fileName))){
                     String list;
@@ -88,7 +70,7 @@ ArrayList<Integer> HighestAge;
                         displayList.append(list+",");
                     }
                     
-                    String [] userList = displayList.toString().split(",");
+                     userList = displayList.toString().split(",");
 
                    for (String i : userList) {
                     System.out.println(i);
@@ -108,9 +90,9 @@ ArrayList<Integer> HighestAge;
                         ++i;
                         AgeList.add(Integer.parseInt(userList[i]));
                         ++i;
-                        performanceList.add(Double.parseDouble(userList[i]));
-                        ++i;
                         depoartmentList.add(userList[i]);
+                        ++i;
+                        performanceList.add(Double.parseDouble(userList[i]));
 
                     } 
                     HighestAge=new ArrayList<>(AgeList);
@@ -138,14 +120,28 @@ ArrayList<Integer> HighestAge;
                         map.put(i,map.get(i)+1);  
                     }
                 }
-//
+
 String writeToFile="example.txt";
-String deparmentName=null;
+
 try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile))) {
 
-    writer.write("the deparment" + deparmentName+"general statistics");
+    writer.write("the deparment general statistics");
+
+    writer.write("we have a total of" + HighestAge.size()+" people working here");
+    
+    writer.write("highest socres are " +HighestPerformance.toString());
+
+    writer.write("highest agesss"+HighestAge.toString());
+
+    ExecutorService executorService = ExecutorService.newFixedThreadPool(//map size);
+
+for(Integer values :map.values()){
+
+    Runnable task = new thread(//string, map);
+    
 
 
+}
 
 
 
@@ -153,16 +149,11 @@ try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile))) {
  e.printStackTrace();
 }
 
-//fix file output
 
+//deparment percentages
 
+//all 3 done simultaniously and attached to its own file with thread pooling
 
-
-//use multithreading to write to multiples files at the same time 
-
-// files should each contain top performers , 
-//percetaage  of emplyees in each deparment
-//sync emplyee count in each deparment
 
 
             System.out.println("hi");
